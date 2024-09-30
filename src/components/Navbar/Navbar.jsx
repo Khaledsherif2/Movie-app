@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "../Footer/Footer";
 import Card from "../Card/Card";
@@ -13,43 +13,23 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <NavLink to="/">
+            <Link to="/">
               <img src="../../images/aflamk.png" />
-            </NavLink>
+            </Link>
           </div>
           <div className="links">
             <ul>
               <li>
-                <NavLink
-                  to="/home"
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  Home
-                </NavLink>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  About Us
-                </NavLink>
+                <Link to="/about">About Us</Link>
               </li>
               <li>
-                <NavLink
-                  to="/profile"
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  My Profile
-                </NavLink>
+                <Link to="/profile">My Profile</Link>
               </li>
               <li>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  Contact
-                </NavLink>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -124,36 +104,16 @@ const Navbar = () => {
             <div className="content">
               <ul>
                 <li>
-                  <NavLink
-                    to="/"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    Home
-                  </NavLink>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <NavLink
-                    to="/about"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    About Us
-                  </NavLink>
+                  <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                  <NavLink
-                    to="/profile"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    My Profile
-                  </NavLink>
+                  <Link to="/profile">My Profile</Link>
                 </li>
                 <li>
-                  <NavLink
-                    to="/contact"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    Contact
-                  </NavLink>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </div>
