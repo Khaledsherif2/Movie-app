@@ -48,7 +48,7 @@
   border: 1px solid #fff;
 }
 .navbar .container .icons i {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #fff;
 }
 .navbar .container .icons > i {
@@ -67,14 +67,15 @@
 }
 .navbar .container .icons > div:nth-child(2) > span {
   position: absolute;
-  top: -50%;
-  right: -25%;
+  top: -35%;
+  right: -5%;
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: #fff;
+  font-size: 15px;
 }
 .navbar .container .icons div .notifications {
   padding: 10px;

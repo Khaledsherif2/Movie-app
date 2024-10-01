@@ -3,25 +3,6 @@
   color: white;
 }
 
-.nav-about {
-  display: flex;
-  justify-content: center;
-  gap: 13px;
-  padding: 18px;
-  background-color: rgb(30, 39, 45);
-  align-items: center;
-}
-
-.nav-about h3 {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.nav-about a {
-  text-decoration: none;
-  color: white;
-}
-
 .choose-us {
   display: flex;
   gap: 20px;

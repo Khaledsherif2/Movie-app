@@ -9,12 +9,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar />
         <Routes>
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Navbar />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );
