@@ -29,18 +29,35 @@ function Login() {
 
           {isRegister ? (
             <form className="auth-form">
-              <input
-                type="text"
-                placeholder="User Name"
-                className="auth-input"
-              />
+              <div>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="First Name"
+                  className="auth-input"
+                />
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="last Name"
+                  className="auth-input"
+                />
+              </div>
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 className="auth-input"
               />
               <input
+                type="text"
+                name="phone"
+                placeholder="Phone"
+                className="auth-input"
+              />
+              <input
                 type="password"
+                name="password"
                 placeholder="Password"
                 className="auth-input"
               />
