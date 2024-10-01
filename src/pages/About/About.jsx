@@ -43,7 +43,6 @@ function About() {
 
   const [showIframe, setShowIframe] = useState(false);
 
-  // دالة لتغيير حالة إظهار iframe عند الضغط على الزر
   const handleClick = () => {
     setShowIframe(true);
   };
