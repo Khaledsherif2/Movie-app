@@ -42,10 +42,11 @@ const Footer = () => {
         <Link to="/contact">Support</Link>
       </div>
       <div className="bottom-bar">
-        <p>Copyright &copy; 2024 All right reserve</p>
+        <p>Copyright &copy; 2024 All right reserved</p>
         <div>
-          <Link to="/login">Already have an Account? LOGIN</Link>
-          <Link className="btn" to="/signup">
+          <span>Already have an Account?</span>
+          <Link to="/login">LOGIN</Link>
+          <Link className="btn" to="/login">
             Become a Member
           </Link>
         </div>
