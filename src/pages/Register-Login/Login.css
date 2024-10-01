@@ -45,6 +45,16 @@
   flex-direction: column;
 }
 
+.login-container .auth-container .auth-form > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.login-container .auth-container .auth-form > div > input {
+  flex: 1;
+}
+
 .login-container .auth-container .auth-form .auth-input {
   padding: 13px;
   margin-bottom: 13px;
