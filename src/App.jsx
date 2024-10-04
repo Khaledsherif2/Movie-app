@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/Register-Login/Login";
 import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/Contact";
+import Stream from "./pages/stream/stream";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/stream" element={<Stream />} />
         </Routes>
         <Footer />
       </BrowserRouter>
