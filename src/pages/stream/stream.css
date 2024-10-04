@@ -1,29 +1,24 @@
 /* Global Styles */
 
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+.stream {
+    background: #000;
+    color: white;
 }
 
-.description {
+.content-details .movie-description .description {
     font-size: 1rem;
     margin-bottom: 2rem;
-}
-
-section {
-    max-width: 1200px;
-    margin: auto;
 }
 
 
 /* Content Details Styles */
 
 .content-details {
+    max-width: 1200px;
+    margin: auto;
     padding: 2rem;
     color: white;
-    background-color: #121212;
+    background-color: #000;
 }
 
 .content-header {
@@ -33,12 +28,12 @@ section {
     background-color: #686767;
 }
 
-.metadata {
+.content-header .metadata {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.video-container {
+.content-details .video-container {
     position: relative;
     width: 100%;
     height: 0;
@@ -46,7 +41,7 @@ section {
     margin-bottom: 2rem;
 }
 
-.responsive-iframe {
+.content-details .video-container .responsive-iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,42 +50,44 @@ section {
     border: none;
 }
 
-.release-date {
+.content-details .movie-description .release-date {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.movie-description {
+.content-details .movie-description {
     margin-top: 1.5rem;
     text-align: left;
     height: auto;
+    border-bottom: 1px solid #333;
 }
 
 
 /* Share Links Styles */
 
-.share-links {
+.content-details .share-links {
     margin-top: 1rem;
     text-align: left;
     margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
 }
 
-.share-links h2 {
+.content-details .share-links h2 {
     margin-bottom: 1rem;
 }
 
-.share-links a {
+.content-details .share-links a {
     color: #e50914;
     margin: 0 10px;
     text-decoration: none;
 }
 
-.icons {
+.content-details .share-links .share-links-a .icons {
     max-width: 50px;
     max-height: 50px;
 }
 
-.share-links a:hover {
+.content-details .share-links a:hover {
     text-decoration: underline;
 }
 
@@ -98,13 +95,13 @@ section {
 /* Media Queries */
 
 @media (max-width: 768px) {
-    .title {
+    .content-header .title {
         font-size: 2rem;
     }
-    .description {
+    .content-details .movie-description .description {
         font-size: 1rem;
     }
-    .responsive-iframe {
+    .content-details .video-container .responsive-iframe {
         height: 200px;
     }
 }
