@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="logo">
-        <img src="../../images/aflamk.png" />
+        <img src="../../images/aflamk.png" alt="logo" />
       </div>
       <div className="description">
         With a search first mentality across digital marketing, our passionate

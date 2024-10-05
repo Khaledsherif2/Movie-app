@@ -159,7 +159,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 5;
   transition: display 0.3s;
 }
 .menu .header {

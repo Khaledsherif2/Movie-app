@@ -52,8 +52,8 @@ function About() {
   return (
     <>
       <Navbar />
+      <Header name="About us" />
       <div className="about">
-        <Header name="About us" />
         <div className="choose-us">
           <div className="left">
             <h5>Why Choose Us</h5>
@@ -119,6 +119,7 @@ function About() {
                 src="https://www.youtube.com/embed/BXrCWq7DCfg?autoplay=1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
+                title="OurApp"
               ></iframe>
             </div>
           )}

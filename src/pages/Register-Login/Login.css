@@ -48,11 +48,13 @@
 .login-container .auth-container .auth-form > div {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .login-container .auth-container .auth-form > div > input {
   flex: 1;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .login-container .auth-container .auth-form .auth-input {

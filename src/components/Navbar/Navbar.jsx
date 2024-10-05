@@ -10,13 +10,13 @@ const Navbar = () => {
       <div className="container">
         <div className="logo">
           <Link to="/">
-            <img src="../../images/aflamk.png" />
+            <img src="../../images/aflamk.png" alt="logo" />
           </Link>
         </div>
         <div className="links">
           <ul>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/about">About Us</Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
             )}
           </div>
           <div>
-            <img src="../../../images/avatar.jpg" />
+            <img src="../../../images/avatar.jpg" alt="avatar" />
           </div>
           <i
             className="fa-duotone fa-solid fa-bars-staggered"

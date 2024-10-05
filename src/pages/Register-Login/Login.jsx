@@ -8,7 +8,7 @@ function Login() {
 
   return (
     <>
-      <Header name="Login & Register" />
+      <Header name={isRegister ? "Register" : "Login"} />
       <div className="login-container">
         <div className="auth-container">
           <div className="toggle-container">
