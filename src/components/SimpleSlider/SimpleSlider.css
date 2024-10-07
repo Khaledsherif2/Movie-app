@@ -3,107 +3,94 @@
   top: -200px;
 
   right: 0;
-
-    
 }
 
 .swip .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swip .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    width: 100% !important;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  }
-  
-  .swip .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.swip .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  width: 100% !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.swip .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swip .mySwiper video {
+  width: 110%;
+}
+.swip .vid {
+  height: 100%;
+  width: 100%;
+}
+
+.swip .swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff9d;
+}
+
+.swip .info {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translatey(-45%);
+  z-index: 30;
+  color: aliceblue;
+}
+.swip .info h3 {
+  font-size: 80px;
+}
+.swip .info button {
+  text-align: start;
+  display: block;
+  margin-top: 20px;
+  padding: 15px 40px;
+  background-color: rgb(214, 44, 26);
+  border: none;
+  color: white;
+  font-size: 17px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+.swip .info button:hover {
+  background-color: rgb(168, 34, 34);
+}
+
+@media (max-width: 768px) {
+  .swip {
+    top: -20px;
+    right: 0;
   }
 
-
-  .swip  .mySwiper video {
-    width: 110%;
-   
+  .swip .info h3 {
+    font-size: 20px;
   }
-  .swip .vid {
-    height: 100%;
-    width: 100%;
-    
-    
+  .swip .info button {
+    padding: 2px 10px;
+    margin-top: 2px;
+    font-size: 14px;
   }
 
-  .swip .swiper-button-next, .swiper-button-prev {
-    color: #ffffff9d;
+  .swip .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
   }
 
   .swip .info {
-    position: absolute;
     top: 50%;
-    left: 80px;
-    transform: translatey(-45%);
-    z-index: 30;
-    color: aliceblue;
+    left: 40px;
+    transform: translatey(6%);
   }
-  .swip .info h3 {
-    font-size: 80px;
-    
-  }
-  .swip .info button  {
-    text-align: start;
-    display: block;
-    margin-top: 20px;
-    padding: 15px 40px;
-    background-color: rgb(214, 44, 26);
-    border: none;
-    color: white;
-    font-size: 17px;
-    margin-left:6px ;
-    cursor: pointer;
-  }
-  .swip .info button:hover  {
-    background-color: rgb(168, 34, 34);
-  }
-  
-  
-  @media(
-    max-width: 768px
-  ){
-    .swip {
-      top: -20px;
-      right: 0;
-    }
-
-    .swip .info h3 {
-      font-size: 20px;
-      
-    }
-    .swip .info button  {
-      padding: 2px 10px;
-      margin-top: 2px;
-    }
-
-    .swip  .swiper-button-next, .swiper-button-prev {
-      display: none;
-    }
-
-  }
-  
-  
-  
-
-
-
-
-
-
-
+}

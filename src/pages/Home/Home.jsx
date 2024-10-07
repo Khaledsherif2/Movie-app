@@ -14,19 +14,16 @@ function Home() {
         <MultiSlider />
       </div>
       <div className="mlti-container ">
-         Movies
+        Movies
         <hr />
         <MultiSlider />
       </div>
       <SimpleSlider />
       <div className="mlti-container ">
-         Old  Movies
-
+        Old Movies
         <hr />
         <MultiSlider />
       </div>
-
-    
     </div>
   );
 }

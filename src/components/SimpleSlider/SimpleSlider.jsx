@@ -12,18 +12,16 @@ export default function SimpleSlidesadfasdfr() {
   return (
     <div className="swip">
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-
-
         <SwiperSlide>
           <div className="vid">
             {" "}
             <video
               src="../../../public/img-home/Intersteller.mp4"
               className="slide-video"
-              controls={false} // Add controls to allow play/pause
-              autoPlay={true} // Optional: Autoplay the video
-              loop // Optional: Loop the video
-              muted={true} // Optional: Start video muted
+              controls={false}
+              autoPlay={true}
+              loop
+              muted={true}
             >
               Your browser does not support the video tag.
             </video>
@@ -33,7 +31,6 @@ export default function SimpleSlidesadfasdfr() {
             </div>
           </div>
         </SwiperSlide>
-
 
         <SwiperSlide>
           <div className="vid">
@@ -41,10 +38,10 @@ export default function SimpleSlidesadfasdfr() {
             <video
               src="../../../public/img-home/FastAndFurious.mp4"
               className="slide-video"
-              controls={false} // Add controls to allow play/pause
-              autoPlay={true} // Optional: Autoplay the video
-              loop // Optional: Loop the video
-              muted={true} // Optional: Start video muted
+              controls={false}
+              autoPlay={true}
+              loop
+              muted={true}
             >
               Your browser does not support the video tag.
             </video>
@@ -60,10 +57,10 @@ export default function SimpleSlidesadfasdfr() {
             <video
               src="../../../public/img-home/FastAndFurious.mp4"
               className="slide-video"
-              controls={false} // Add controls to allow play/pause
-              autoPlay={true} // Optional: Autoplay the video
-              loop // Optional: Loop the video
-              muted={true} // Optional: Start video muted
+              controls={false}
+              autoPlay={true}
+              loop
+              muted={true}
             >
               Your browser does not support the video tag.
             </video>
@@ -73,8 +70,6 @@ export default function SimpleSlidesadfasdfr() {
             </div>
           </div>
         </SwiperSlide>
-
-        
       </Swiper>
     </div>
   );

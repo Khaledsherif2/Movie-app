@@ -1,5 +1,5 @@
 .card {
-  max-width:  200px;
+  max-width: 200px;
   margin: 0 10px;
   flex-shrink: 0;
   width: 100%;
@@ -11,9 +11,7 @@
   position: relative;
 }
 
-@media (
-  max-width: 768px
-){
+@media (max-width: 768px) {
   .card {
     height: 200px;
   }
@@ -53,10 +51,10 @@
 
 .card .watch-list {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 40px;
-  height: 40px;
+  top: 20px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
   font-size: 22px;
