@@ -1,0 +1,115 @@
+.card {
+  max-width:  200px;
+  margin: 0 10px;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+@media (
+  max-width: 768px
+){
+  .card {
+    height: 200px;
+  }
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(to top, #072e4a 25%, transparent 60%) repeat scroll 0% 0%;
+  pointer-events: none;
+  border-radius: 10px;
+  transition: all 0.3s ease 0s;
+  transform: translate3d(0px, 50%, 0px);
+  opacity: 0;
+}
+
+.card:hover::before {
+  transform: translate3d(0px, 15%, 0px);
+  opacity: 0.9;
+}
+
+.card .card-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card .watch-list {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background-color: #f4181c;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.4s 0.1s;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.card .watch-list:hover {
+  background-color: #222;
+}
+
+.card:hover .watch-list {
+  visibility: visible;
+  opacity: 1;
+}
+
+.card .card-content {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  text-align: center;
+  color: white;
+  width: 100%;
+  transition: all linear 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+}
+.card .card-content button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #f4181c;
+  line-height: 1;
+  border: none;
+  margin-top: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.card .card-content button:hover {
+  background-color: white;
+  color: #f4181c;
+}
+.card:hover .card-content {
+  visibility: visible;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}

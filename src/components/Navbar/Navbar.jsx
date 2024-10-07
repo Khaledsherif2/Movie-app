@@ -73,7 +73,7 @@ const Navbar = () => {
             )}
           </div>
           <div>
-            <img src="../../../images/avatar.jpg" />
+            <img src="../../../public/images/avatar.png" />
           </div>
           <i
             className="fa-duotone fa-solid fa-bars-staggered"

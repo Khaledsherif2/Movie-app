@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
+
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About/About";
@@ -7,6 +8,7 @@ import Login from "./pages/Register-Login/Login";
 import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/Contact";
 import Stream from "./pages/stream/stream";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navbar />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/contact" element={<Contact />} />
