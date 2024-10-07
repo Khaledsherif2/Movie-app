@@ -17,7 +17,7 @@ export default function MultiSlider() {
           clickable: true,
         }}
         autoplay={{
-          delay: 10000,
+          delay: 20000,
           disableOnInteraction: false,
         }}
         modules={[FreeMode, Pagination, Autoplay]}
