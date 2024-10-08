@@ -1,8 +1,12 @@
 .navbar {
+<<<<<<< HEAD
   background-color: #00000007;
   position: sticky;
   top: 0;
   z-index: 20;
+=======
+  background-color: #000;
+>>>>>>> master
 }
 .navbar .container {
   display: flex;
@@ -175,7 +179,10 @@
 }
 .menu .header i {
   font-size: 30px;
+<<<<<<< HEAD
   color: #d62d1aa6;
+=======
+>>>>>>> master
 }
 .menu .header .exit {
   font-size: 24px;
