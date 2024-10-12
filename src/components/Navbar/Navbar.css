@@ -1,5 +1,8 @@
 .navbar {
-  background-color: #000;
+  background-color: #00000007;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 .navbar .container {
   display: flex;
@@ -43,6 +46,10 @@
   border-radius: 50%;
   cursor: pointer;
   position: relative;
+}
+
+.navbar .container .icons .icon-img {
+  overflow: hidden;
 }
 .navbar .container .icons > div:not(:last-of-type) {
   border: 1px solid #fff;
@@ -172,6 +179,7 @@
 }
 .menu .header i {
   font-size: 30px;
+  color: #d62d1aa6;
 }
 .menu .header .exit {
   font-size: 24px;
