@@ -47,6 +47,10 @@
   cursor: pointer;
   position: relative;
 }
+
+.navbar .container .icons .icon-img {
+  overflow: hidden;
+}
 .navbar .container .icons > div:not(:last-of-type) {
   border: 1px solid #fff;
 }

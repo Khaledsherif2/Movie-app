@@ -89,15 +89,20 @@
 }
 
 .profile .container .profile-header .profile-details .imgContainer {
-  width: 10%;
-  min-width: 10%;
+  /* width: 10%;
+  min-width: 10%; */
   margin-right: 15px;
   position: relative;
+  width: 70px;
+  overflow: hidden;
+  border-radius: 50%;
+  height: 70px;
+
 }
 
 .profile .container .profile-header .profile-details .imgContainer img {
   width: 100%;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .profile .container .profile-header .profile-details .imgContainer span {

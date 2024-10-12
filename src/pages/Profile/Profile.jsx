@@ -95,7 +95,7 @@ function Profile() {
               <div className="profile-header">
                 <div className="profile-details">
                   <div className="imgContainer">
-                    <img src="../../../images/avatar.jpg" alt="Profile Image" />
+                    <img src="../../../public/images/avatar.jpg" alt="Profile Image" />
                     <div>
                       <span>
                         <i className="fa-duotone fa-solid fa-camera"></i>
