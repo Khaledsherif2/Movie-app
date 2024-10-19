@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useContext, useState } from "react";
+import { useNavigate } from "react-router";
 import "./About.css";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
+import { LoginContext } from "../../context/Login";
 
 function About() {
   const items = [
@@ -36,14 +38,21 @@ function About() {
         "The Aflamk Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.",
     },
   ];
-
   const [activeIndex, setActiveIndex] = useState(null);
+  const [showIframe, setShowIframe] = useState(false);
+  const { decodeToken } = useContext(LoginContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!decodeToken) {
+      navigate("/login");
+      return;
+    }
+  }, [decodeToken, navigate]);
 
   const handleToggle = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
-
-  const [showIframe, setShowIframe] = useState(false);
 
   const handleClick = () => {
     setShowIframe(true);
@@ -52,8 +61,8 @@ function About() {
   return (
     <>
       <Navbar />
+      <Header name="About us" />
       <div className="about">
-        <Header name="About us" />
         <div className="choose-us">
           <div className="left">
             <h5>Why Choose Us</h5>
@@ -119,6 +128,7 @@ function About() {
                 src="https://www.youtube.com/embed/BXrCWq7DCfg?autoplay=1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
+                title="OurApp"
               ></iframe>
             </div>
           )}

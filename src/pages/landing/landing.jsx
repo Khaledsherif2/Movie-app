@@ -1,24 +1,35 @@
-import { useState } from "react";
-import "./landing.css";
+import "./Landing.css";
+import { useEffect, useContext, useState } from "react";
 import MultiSlider from "../../components/Multislider/MultiSlider";
 import { useNavigate } from "react-router";
+import { LoginContext } from "../../context/Login";
+import { EmailContext } from "../../context/Email";
 
 const Landing = () => {
+  const { decodeToken } = useContext(LoginContext);
+  const { setEmail } = useContext(EmailContext);
   const [activeIndex, setActiveIndex] = useState(null);
   const navigate = useNavigate();
-
-
 
   const toggleAccordion = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
+  useEffect(() => {
+    if (decodeToken) {
+      navigate("/home");
+      return;
+    }
+  }, [decodeToken, navigate]);
+
   return (
     <div className="landing-page">
       <div className="reg-part">
         <div className="reg-top">
-          <img src="../../../public/images/aflamk.png" alt="logo" />
-          <button className="sign-in" onClick={()=> navigate('/login')}>Sign In</button>
+          <img src="../../../images/aflamk.png" alt="logo" />
+          <button className="sign-in" onClick={() => navigate("/login")}>
+            Sign In
+          </button>
         </div>
         <div className="reg-content">
           <h1>
@@ -29,10 +40,14 @@ const Landing = () => {
             Ready to watch? Enter your email to create or restart your
             membership.
           </h4>
-          <div className="email-form">
-            <input type="email" placeholder="Email Address" />
-            <button onClick={()=> navigate('/login')} >Get Started</button>
-          </div>
+          <form className="email-form" onSubmit={() => navigate("/login")}>
+            <input
+              type="email"
+              placeholder="Email Address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit">Get Started</button>
+          </form>
         </div>
       </div>
 
@@ -45,7 +60,7 @@ const Landing = () => {
           </p>
         </div>
         <div className="tv-img">
-          <img src="../../../public/img-landing/landing-tv.webp" />
+          <img src="../../../img-landing/landing-tv.webp" />
         </div>
       </div>
 
@@ -70,7 +85,7 @@ const Landing = () => {
 
       <div className="download">
         <div className="download-img">
-          <img src="../../../public/img-landing/landing-download.webp" />
+          <img src="../../../img-landing/landing-download.webp" />
         </div>
         <div className="download-content">
           <h2>
@@ -91,7 +106,7 @@ const Landing = () => {
           </p>
         </div>
         <div className="watch-img">
-          <img src="../../../public/img-landing/landing-watch.webp" />
+          <img src="../../../img-landing/landing-watch.webp" />
         </div>
       </div>
 

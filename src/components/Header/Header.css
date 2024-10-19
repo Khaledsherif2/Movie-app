@@ -1,4 +1,7 @@
 .main-header {
+  position: sticky;
+  top: -1px;
+  z-index: 20;
   display: flex;
   justify-content: center;
   gap: 13px;

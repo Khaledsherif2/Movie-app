@@ -1,8 +1,21 @@
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Contact.css";
+import { useEffect, useContext } from "react";
+import { useNavigate } from "react-router";
+import { LoginContext } from "../../context/Login";
 
 const Contact = () => {
+  const { decodeToken } = useContext(LoginContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!decodeToken) {
+      navigate("/login");
+      return;
+    }
+  }, [decodeToken, navigate]);
+
   return (
     <>
       <Navbar />

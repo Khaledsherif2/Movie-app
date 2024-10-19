@@ -1,7 +1,6 @@
 .navbar {
-  background-color: #00000007;
-  position: sticky;
-  top: 0;
+  background-color: rgba(0, 0, 0, 0.027);
+  position: relative;
   z-index: 20;
 }
 .navbar .container {
@@ -9,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 90px;
+  height: 65px;
   position: sticky;
 }
 .navbar .container .logo {
@@ -53,6 +52,9 @@
 }
 .navbar .container .icons > div:not(:last-of-type) {
   border: 1px solid #fff;
+}
+.navbar .container .icons > div:last-of-type {
+  overflow: hidden;
 }
 .navbar .container .icons i {
   font-size: 0.9rem;
@@ -140,7 +142,7 @@
   font-size: 12px;
   color: gray;
 }
-.navbar .container .icons div > img {
+.navbar .container .icons div a > img {
   width: 100%;
 }
 .navbar .btn {

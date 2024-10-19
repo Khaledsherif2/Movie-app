@@ -16,7 +16,7 @@ export default function SimpleSlidesadfasdfr() {
           <div className="vid">
             {" "}
             <video
-              src="../../../public/img-home/Intersteller.mp4"
+              src="../../../img-home/Intersteller.mp4"
               className="slide-video"
               controls={false}
               autoPlay={true}
@@ -36,7 +36,7 @@ export default function SimpleSlidesadfasdfr() {
           <div className="vid">
             {" "}
             <video
-              src="../../../public/img-home/FastAndFurious.mp4"
+              src="../../../img-home/FastAndFurious.mp4"
               className="slide-video"
               controls={false}
               autoPlay={true}
@@ -55,7 +55,7 @@ export default function SimpleSlidesadfasdfr() {
           <div className="vid">
             {" "}
             <video
-              src="../../../public/img-home/FastAndFurious.mp4"
+              src="../../../img-home/FastAndFurious.mp4"
               className="slide-video"
               controls={false}
               autoPlay={true}

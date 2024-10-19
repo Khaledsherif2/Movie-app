@@ -7,13 +7,9 @@
 
 .reg-part {
   content: "";
-  /* position: absolute;
-    top: 0;
-    left: 0; */
   width: 100%;
   height: 100%;
-  background: url("../../../public//img-landing/landingBackground.jpg") no-repeat center
-    center/cover;
+  background: url("../../../img-landing/bg.jpg") no-repeat center center/cover;
 }
 
 .reg-content {
@@ -45,7 +41,6 @@
 
 .email-form {
   display: flex;
-  /* margin-top: 30px; */
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -56,7 +51,6 @@
   padding: 22px 25px;
   font-size: 15px;
   border: none;
-  /* border-radius: 5px; */
   width: 600px;
 }
 
@@ -66,10 +60,8 @@
   color: white;
   font-size: 1rem;
   border: none;
-  /* border-radius: 5px; */
   cursor: pointer;
   display: block;
-  /* height: 40px; */
   text-align: center;
 }
 
@@ -105,53 +97,32 @@
   background-color: #f40612;
 }
 
-
-
-
-
-@media(
-  max-width: 768px) {
-    .reg-top img {
-      max-width: 120px;
-    } 
-
-    .reg-content h1 {
-      font-size: 28px;
-    }
-
-    
-    .reg-content h2 {
-    font-size: 16px;}
-
-    .reg-content h4 {
-      font-weight: lighter;
-      font-size: 12px;
-      width: 200px;}
-
-
-      .email-form {
-        width: 95%;
-        
-      }
-      .email-form button {
-        font-size: 12px;
-      }
-
-
+@media (max-width: 768px) {
+  .reg-top img {
+    max-width: 120px;
   }
 
+  .reg-content h1 {
+    font-size: 28px;
+  }
 
+  .reg-content h2 {
+    font-size: 16px;
+  }
 
+  .reg-content h4 {
+    font-weight: lighter;
+    font-size: 12px;
+    width: 200px;
+  }
 
-
-
-
-
-
-/* ////////////////////////////////////////////////////////////////// */
-
-
-
+  .email-form {
+    width: 95%;
+  }
+  .email-form button {
+    font-size: 12px;
+  }
+}
 
 .tv-part {
   background-color: rgb(26, 40, 51);
@@ -161,10 +132,7 @@
   align-items: center;
   justify-content: center;
   gap: 60px;
-
 }
-
-
 
 .tv-content h2 {
   font-size: 40px;
@@ -177,36 +145,26 @@
 }
 
 .tv-img {
-  /* grid-column: 3/7; */
   display: flex;
   align-items: center;
 }
 
 .tv-img img {
   width: 100%;
-  /* max-width: 500px; */
 }
 
-
-@media(
-  max-width: 768px
-){
+@media (max-width: 768px) {
   .tv-part {
     flex-direction: column;
   }
 
   .tv-img img {
-    width: 70%;  
-  } 
+    width: 70%;
+  }
   .tv-img {
     justify-content: center;
   }
-
 }
-
-
-
-/* ///////////////////////////////////////////////////////////////////// */
 
 .statics {
   display: grid;
@@ -228,33 +186,22 @@
   color: white;
 }
 
-
-
-
-@media(
-  max-width:768px
-){
+@media (max-width: 768px) {
   .statics {
     padding: 20px 5px;
     height: 180px;
     align-items: center;
   }
 
-
   .static h2 {
-    font-size: 27px;}
+    font-size: 27px;
+  }
 
-    .static p {
-      font-size: 12px;
-    }
-
-
+  .static p {
+    font-size: 12px;
+  }
 }
 
-
-
-
-/* /////////////////////////////////////////////////////////////////////////////////// */
 .download {
   background-color: rgb(26, 40, 51);
   color: white;
@@ -273,9 +220,7 @@
   font-size: 25px;
 }
 
-@media(
-  max-width:768px
-){
+@media (max-width: 768px) {
   .download {
     flex-direction: column;
     padding: 50px 10px;
@@ -287,25 +232,16 @@
   .download-content h2 {
     font-size: 30px;
   }
-  
+
   .download-content p {
     font-size: 15px;
   }
 
-  .download-content{
+  .download-content {
     order: 2;
   }
 }
 
-
-
-
-
-
-
-
-
-/* //////////////////////////////////////////////////////////////////////// */
 .watch {
   background-color: rgb(26, 40, 51);
   color: white;
@@ -326,10 +262,7 @@
   font-size: 25px;
 }
 
-
-@media(
-  max-width:768px
-){
+@media (max-width: 768px) {
   .watch {
     display: flex;
     flex-direction: column;
@@ -346,9 +279,8 @@
 
   .watch-content {
     order: 2;
-
   }
-  .watch-img{
+  .watch-img {
     order: 1;
   }
 
@@ -357,14 +289,9 @@
   }
   .watch-content p {
     font-size: 15px;
+  }
 }
-}
 
-
-
-
-
-/* /////////////////////////////////////////////////////////// */
 .latest-movies {
   background-color: black;
   color: white;
@@ -379,11 +306,8 @@
   margin-bottom: 30px;
 }
 
-
-@media(
-  max-width:768px
-){
-  .latest-movies  {
+@media (max-width: 768px) {
+  .latest-movies {
     flex-direction: column;
     padding: 50px 5px;
   }
@@ -392,136 +316,6 @@
     font-size: 25px;
   }
 }
-
-
-
-
-
-/* .latest-movies{
-  font-size: xx-large;
-  background-color: black;
-  color: white;
-  height: 90vh;
-}
-
-.latest-movies-title{
- font-size: xx-large;
-text-align: center;
-margin-bottom: 50px;
-  font-weight: 800;
-}  */
-
-/* .cards{
-  display: flex;
-}
-
-.card {
-  min-width: 200px;
-  margin: 0 10px;
-  flex-shrink: 0;
-  width: 200px;
-  margin: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  position: relative;
-}
-
-.card:hover {
-  transform: scale(1.1);
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0)
-    linear-gradient(to top, #072e4a 25%, transparent 60%) repeat scroll 0% 0%;
-  pointer-events: none;
-  border-radius: 10px;
-  transition: all 0.3s ease 0s;
-  transform: translate3d(0px, 50%, 0px);
-  opacity: 0;
-}
-
-.card:hover::before {
-  transform: translate3d(0px, 15%, 0px);
-  opacity: 0.9;
-}
-
-.card .card-image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.card .watch-list {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  background-color: #f4181c;
-  color: #fff;
-  border-radius: 50%;
-  transition: all 0.4s 0.1s;
-  border: none;
-  opacity: 0;
-  visibility: hidden;
-  cursor: pointer;
-}
-
-.card .watch-list:hover {
-  background-color: #222;
-}
-
-.card:hover .watch-list {
-  visibility: visible;
-  opacity: 1;
-}
-
-.card .card-content {
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  text-align: center;
-  color: white;
-  width: 100%;
-  transition: all linear 0.4s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 2;
-}
-.card .card-content button {
-  padding: 6px 12px;
-  border-radius: 4px;
-  color: #ffffff;
-  background-color: #f4181c;
-  line-height: 1;
-  border: none;
-  margin-top: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.4s;
-}
-.card .card-content button:hover {
-  background-color: white;
-  color: #f4181c;
-}
-.card:hover .card-content {
-  visibility: visible;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-} */
 
 .prev,
 .next {

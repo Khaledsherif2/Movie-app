@@ -108,6 +108,6 @@
 }
 .card:hover .card-content {
   visibility: visible;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
   opacity: 1;
 }

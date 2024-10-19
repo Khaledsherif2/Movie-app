@@ -64,6 +64,7 @@
   font-size: 15px;
   text-decoration: underline;
   margin-left: 5px;
+  display: inline-block;
 }
 .footer .bottom-bar a:first-of-type:hover {
   color: #e50914;
@@ -80,5 +81,8 @@
   .footer .bottom-bar {
     flex-direction: column;
     gap: 20px;
+  }
+  .footer .bottom-bar .btn {
+    margin-top: 5px;
   }
 }
