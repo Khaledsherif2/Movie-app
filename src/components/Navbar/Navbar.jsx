@@ -1,16 +1,20 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { LoginContext } from "../../context/Login";
+
 const Navbar = () => {
+  const { removeCookie, decodeToken } = useContext(LoginContext);
   const [search, setSearch] = useState(false);
   const [notification, setNotification] = useState(false);
   const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
   return (
     <nav className="navbar">
       <div className="container">
         <div className="logo">
           <Link to="/">
-            <img src="../../images/aflamk.png" />
+            <img src="../../images/aflamk.png" alt="logo" />
           </Link>
         </div>
         <div className="links">
@@ -72,14 +76,33 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <div className="icon-img">
-            <img src="../../../public/images/avatar.jpg" />
+          <div>
+            <Link to="/profile">
+              <img
+                src={
+                  decodeToken
+                    ? decodeToken.avatar
+                      ? decodeToken.avatar
+                      : "../../../images/avatar.png"
+                    : "../../../images/avatar.png"
+                }
+                alt="avatar"
+              />
+            </Link>
           </div>
           <i
             className="fa-duotone fa-solid fa-bars-staggered"
             onClick={() => setMenu(true)}
           ></i>
-          <button className="btn">Log Out</button>
+          <button
+            className="btn"
+            onClick={() => {
+              removeCookie("token");
+              navigate("/");
+            }}
+          >
+            Log Out
+          </button>
         </div>
       </div>
       {menu && (
@@ -99,7 +122,7 @@ const Navbar = () => {
             <div className="content">
               <ul>
                 <li>
-                  <Link to="/home">Home</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
                   <Link to="/about">About Us</Link>

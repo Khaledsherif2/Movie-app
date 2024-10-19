@@ -2,49 +2,40 @@
   background-color: black;
   color: white;
 }
-
 .choose-us {
   display: flex;
   gap: 20px;
   padding: 80px;
 }
-
 .choose-us .left h5 {
   font-size: 38px;
   font-weight: normal;
   margin-bottom: 20px;
 }
-
 .choose-us .left p {
   font-size: 17px;
   line-height: 1.8;
 }
-
 .choose-us .right {
   width: 150pc;
   margin: auto;
 }
-
 .choose-us .right img {
   width: 100%;
 }
-
 .info-about {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 23px;
   padding: 0px 80px 100px;
 }
-
 .info-about .info h5 {
   font-size: 18px;
   margin-bottom: 20px;
 }
-
 .info-about .info p {
   line-height: 1.8;
 }
-
 @media (max-width: 768px) {
   .choose-us {
     flex-direction: column;
@@ -53,13 +44,11 @@
     width: 100%;
     margin: auto;
   }
-
   .info-about {
     grid-template-columns: repeat(1, 1fr);
     gap: 35px;
   }
 }
-
 .watch-video {
   background-color: rgb(18, 34, 45);
   text-align: center;
@@ -67,28 +56,23 @@
   padding: 80px;
   position: relative;
 }
-
 .watch-video h5 {
   font-size: 35px;
   font-weight: 100;
 }
-
 .watch-video p {
   font-size: 17px;
   margin-bottom: 50px;
   margin-top: 20px;
 }
-
 .watch-video .vid {
   width: 75%;
   margin: auto;
   position: relative;
 }
-
 .watch-video .vid img {
   width: 100%;
 }
-
 .watch-video .vid .btn-vid {
   background-color: rgba(255, 0, 0, 0.705);
   width: 100px;
@@ -102,11 +86,9 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
-
 .watch-video .vid .btn-vid:hover {
   background-color: rgb(189, 86, 86);
 }
-
 .watch-video .video {
   position: absolute;
   z-index: 5;
@@ -114,7 +96,6 @@
   top: 50%;
   transform: translate(50%, -50%);
 }
-
 .watch-video .video i {
   position: absolute;
   right: 0px;
@@ -122,7 +103,6 @@
   font-size: 30px;
   cursor: pointer;
 }
-
 .watch-video .video .frame {
   width: 850px;
   height: 600px;
@@ -139,13 +119,11 @@
     height: 250px;
   }
 }
-
 .statistics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 80px 0px;
 }
-
 .statistic {
   text-align: center;
 }
@@ -156,14 +134,12 @@
 .statistic p {
   font-size: 17px;
 }
-
 @media (max-width: 768px) {
   .statistics {
     grid-template-columns: repeat(1, 1fr);
     gap: 50px;
   }
 }
-
 .team {
   text-align: center;
   line-height: 1.5;
@@ -175,12 +151,10 @@
   font-size: 35px;
   font-weight: 100;
 }
-
 .team p {
   font-size: 17px;
   margin: 20px;
 }
-
 .team .members {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -189,24 +163,18 @@
 .team .members h5 {
   text-transform: uppercase;
   font-size: 20px;
-
   color: #00000080;
 }
-
 .team .members .member {
   width: 100%;
 }
-
 .team .members .member img {
   transition: 0.5s ease;
-
   width: 80%;
 }
-
 .team .members .member img:hover {
   background-color: rgba(255, 238, 0, 0.247);
 }
-
 @media (max-width: 768px) {
   .team .members {
     display: grid;
@@ -215,56 +183,5 @@
   .team .members .member {
     grid-column: span 6;
     width: 80%;
-  }
-}
-
-/* Accordion.css */
-.accordion {
-  border-radius: 5px;
-  margin: auto;
-  padding: 80px;
-  width: 90%;
-}
-
-.accordion-item {
-  margin-bottom: 8px;
-}
-
-.accordion-title {
-  color: white;
-  background-color: #333;
-  padding: 20px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 100;
-}
-
-.accordion-title.active {
-  background-color: #ff4c4c;
-}
-
-.accordion-content {
-  background-color: #444;
-  color: #fff;
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 15px;
-  line-height: 1.5;
-  font-size: 17px;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.accordion-content.show {
-  max-height: 250px;
-  padding: 15px;
-}
-
-@media (max-width: 768px) {
-  .accordion {
-    width: 100%;
-    padding: 80px 5px;
   }
 }
