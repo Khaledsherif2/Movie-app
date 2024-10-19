@@ -4,6 +4,7 @@ import MultiSlider from "../../components/Multislider/MultiSlider";
 import { useNavigate } from "react-router";
 import { LoginContext } from "../../context/Login";
 import { EmailContext } from "../../context/Email";
+import Accordion from "../../components/Accordion/Accordion";
 
 const Landing = () => {
   const { decodeToken } = useContext(LoginContext);
@@ -50,7 +51,6 @@ const Landing = () => {
           </form>
         </div>
       </div>
-
       <div className="tv-part">
         <div className="tv-content">
           <h2>Enjoy Watching Them on TV.</h2>
@@ -63,7 +63,6 @@ const Landing = () => {
           <img src="../../../img-landing/landing-tv.webp" />
         </div>
       </div>
-
       <div className="statics">
         <div className="static">
           <h2>550+</h2>
@@ -82,7 +81,6 @@ const Landing = () => {
           <p>Awards</p>
         </div>
       </div>
-
       <div className="download">
         <div className="download-img">
           <img src="../../../img-landing/landing-download.webp" />
@@ -95,7 +93,6 @@ const Landing = () => {
           <p>It’s super easy to save your favorite shows!</p>
         </div>
       </div>
-
       <div className="watch">
         <div className="watch-content">
           <h2>Watch Anywhere You Want.</h2>
@@ -109,60 +106,11 @@ const Landing = () => {
           <img src="../../../img-landing/landing-watch.webp" />
         </div>
       </div>
-
       <div className="latest-movies">
         <p className="latest-movies-title">Latest & Popular Movies</p>
         <MultiSlider />
       </div>
-
-      <div className="faq-section">
-        <h2 className="faq-title">Frequently Asked Questions</h2>
-        <div className="faq-container">
-          {[
-            {
-              question: "What is Afalmk?",
-              answer:
-                "Aflamk is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There is always something new to discover and new TV shows and movies are added every week!",
-            },
-            {
-              question: "How expensive is Afalmk?",
-              answer:
-                "Afalmk offers affordable packages starting from $9.99/month.",
-            },
-            {
-              question: "Can I watch with Afalmk everywhere?",
-              answer: "Yes, Afalmk is available on all devices and regions.",
-            },
-            {
-              question: "How easy is cancelling the subscription?",
-              answer:
-                "Cancelling your subscription is simple and can be done with one click in your account settings.",
-            },
-            {
-              question: "What else can I watch with Afalmk?",
-              answer:
-                "You can watch a variety of movies, TV shows, documentaries, and more with Afalmk.",
-            },
-          ].map((faq, index) => (
-            <div key={index} className="faq-item">
-              <div
-                className={`faq-question ${
-                  activeIndex === index ? "open" : ""
-                }`}
-                onClick={() => toggleAccordion(index)}
-              >
-                {faq.question}
-                <span className="arrow">
-                  {activeIndex === index ? "▲" : "▼"}
-                </span>
-              </div>
-              {activeIndex === index && (
-                <div className="faq-answer">{faq.answer}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+      <Accordion />
     </div>
   );
 };

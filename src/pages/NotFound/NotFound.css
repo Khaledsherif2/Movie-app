@@ -12,26 +12,22 @@
   flex-direction: column;
   max-width: 500px;
 }
-
 .notFound .container .title {
   font-size: 100px;
   font-weight: bold;
   color: rgb(239, 68, 68);
 }
-
 .notFound .container .subtitle {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
   color: #555;
 }
-
 .notFound .container .message {
   font-size: 16px;
   margin-bottom: 20px;
   color: #777;
 }
-
 .notFound .container button {
   padding: 10px 20px;
   background-color: rgb(239, 68, 68);

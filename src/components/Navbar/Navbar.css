@@ -214,7 +214,6 @@
   background: #000;
   opacity: 0.8;
 }
-
 @media (max-width: 992px) {
   .navbar .container .links {
     display: none;
