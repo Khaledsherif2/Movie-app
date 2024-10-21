@@ -1,37 +1,78 @@
-
-
-.admin-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.admin  {
+    /* height: 100vh; */
+}
+.admin .btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgb(30, 39, 45);
 }
 
+.admin .btns button {
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(121, 126, 131, 0.89);
+    background-color: transparent;
+  cursor: pointer;
+}
 
-
+.admin .btns button:hover {
+    color: #ed2139cc;
+}
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .admin-container .info {
-    color: white;
-    display: flex;
-    gap: 50px;
-    font-size: 3rem;
+  color: white;
+  display: flex;
+  gap: 100px;
+  font-size: 3rem;
 }
 
 .admin-container .info h5 {
-    background-color: red;
-    width: 130px;
-    height: 130px;
-    text-align: center;
-    margin: auto;padding-top: 50px;
-    border-radius: 5px;
-    
+  background: #ed213a;
+  background: -webkit-linear-gradient(to right, #93291e, #ed213a);
+  background: linear-gradient(to right, #93291e, #ed213a);
+
+  width: 130px;
+  height: 130px;
+  text-align: center;
+  margin: 80px 0px 0px ;
+  padding-top: 50px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.admin-container .info .user::after {
+  content: "Users";
+  position: absolute;
+  top: -11px;
+  right: 38px;
+  font-size: 16px;
+  background-color: rgba(196, 86, 22, 0.774);
+  padding: 5px;
+  border-radius: 6px;
+}
+.admin-container .info .mov::after {
+  content: "Movies";
+  position: absolute;
+  top: -11px;
+  right: 33px;
+  font-size: 16px;
+  background-color: rgba(196, 86, 22, 0.774);
+  padding: 5px;
+  border-radius: 6px;
 }
 
 
-
-
-
-
-
-
-
-
+.admin-card {
+   
+    margin: 30px 140px 30px 0px ;
+    height: 100vh;
+}

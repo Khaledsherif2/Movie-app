@@ -2,6 +2,8 @@ import React from "react";
 import "./Admin.css";
 import Header from "../../components/Header/Header";
 import { useNavigate } from "react-router";
+import Cradmov from "../../components/Add-Card-mov/Cradmov";
+// import Card from "../../components/Card/Card";
 
 function Admin() {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ function Admin() {
         <button className="btn" onClick={() => navigate("/create")}>
           Create Movie
         </button>
+
         <button className="btn">Update Movie</button>
       </div>
 
@@ -23,7 +26,12 @@ function Admin() {
           <h5 className="mov">10</h5>
         </div>
 
-        <div className="admin-card"></div>
+        <div className="admin-card">
+          <Cradmov/>
+          <Cradmov/>
+          <Cradmov/>
+         
+        </div>
       </div>
     </div>
   );
