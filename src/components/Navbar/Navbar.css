@@ -10,6 +10,7 @@
   gap: 20px;
   height: 65px;
   position: sticky;
+  padding: 35px 0px;
 }
 .navbar .container .logo {
   flex: 1;
@@ -24,7 +25,7 @@
 .navbar .container .links ul {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 17px;
 }
 .navbar .container .links ul a {
   color: white;
@@ -229,5 +230,8 @@
   }
   .overly {
     display: block;
+  }
+  .navbar .container {
+  padding: 0;
   }
 }

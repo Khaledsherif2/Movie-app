@@ -23,10 +23,16 @@ const Navbar = () => {
               <Link to="/home">Home</Link>
             </li>
             <li>
+              <Link to="/movies">Movies</Link>
+            </li>
+            <li>
               <Link to="/about">About Us</Link>
             </li>
             <li>
               <Link to="/profile">My Profile</Link>
+            </li>
+            <li>
+              <Link to="/watchlist">Watch List</Link>
             </li>
             <li>
               <Link to="/contact">Contact</Link>
@@ -49,7 +55,11 @@ const Navbar = () => {
             ) : (
               <i
                 className="fa-regular fa-magnifying-glass"
-                onClick={() => setSearch(true)}
+                onClick={() =>{
+                  navigate("/search");
+                  setSearch(true);
+
+                } }
               ></i>
             )}
           </div>
@@ -122,13 +132,19 @@ const Navbar = () => {
             <div className="content">
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/home">Home</Link>
+                </li>
+                <li>
+                  <Link to="/movies">Movies</Link>
                 </li>
                 <li>
                   <Link to="/about">About Us</Link>
                 </li>
                 <li>
                   <Link to="/profile">My Profile</Link>
+                </li>
+                <li>
+                  <Link to="/watchlist">Watch List</Link>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>

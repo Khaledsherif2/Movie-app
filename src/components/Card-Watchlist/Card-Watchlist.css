@@ -1,0 +1,25 @@
+
+
+.CardWatchlist {
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+.card .card-content button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #f4181c;
+  line-height: 1.2;
+  border: none;
+  margin-top: 5px;
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
