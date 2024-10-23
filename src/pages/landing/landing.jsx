@@ -1,5 +1,5 @@
 import "./Landing.css";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import MultiSlider from "../../components/Multislider/MultiSlider";
 import { useNavigate } from "react-router";
 import { LoginContext } from "../../context/Login";
@@ -9,12 +9,7 @@ import Accordion from "../../components/Accordion/Accordion";
 const Landing = () => {
   const { decodeToken } = useContext(LoginContext);
   const { setEmail } = useContext(EmailContext);
-  const [activeIndex, setActiveIndex] = useState(null);
   const navigate = useNavigate();
-
-  const toggleAccordion = (index) => {
-    setActiveIndex(index === activeIndex ? null : index);
-  };
 
   useEffect(() => {
     if (decodeToken) {
@@ -65,15 +60,15 @@ const Landing = () => {
       </div>
       <div className="statics">
         <div className="static">
-          <h2>550+</h2>
+          <h2>29+</h2>
           <p>Total Videos</p>
         </div>
         <div className="static">
-          <h2>10+</h2>
+          <h2>5+</h2>
           <p>Position</p>
         </div>
         <div className="static">
-          <h2>200+</h2>
+          <h2>5+</h2>
           <p>Subscribers</p>
         </div>
         <div className="static">

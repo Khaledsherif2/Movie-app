@@ -2,13 +2,16 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { LoginContext } from "../../context/Login";
+import { NotificationContext } from "../../context/NotificationContext";
+import NotificationCard from "../Notifications/NotificationCard";
 
 const Navbar = () => {
   const { removeCookie, decodeToken } = useContext(LoginContext);
-  const [search, setSearch] = useState(false);
-  const [notification, setNotification] = useState(false);
+  const { notifications } = useContext(NotificationContext);
+  const [notificationDisplay, setNotificationDisplay] = useState(false);
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
+
   return (
     <nav className="navbar">
       <div className="container">
@@ -18,12 +21,15 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="links">
-          <ul>
+          <ul style={decodeToken.role === "ADMIN" ? { gap: "21px" } : {}}>
             <li>
               <Link to="/home">Home</Link>
             </li>
             <li>
               <Link to="/movies">Movies</Link>
+            </li>
+            <li>
+              <Link to="/watchlist">Watch List</Link>
             </li>
             <li>
               <Link to="/about">About Us</Link>
@@ -32,58 +38,52 @@ const Navbar = () => {
               <Link to="/profile">My Profile</Link>
             </li>
             <li>
-              <Link to="/watchlist">Watch List</Link>
-            </li>
-            <li>
               <Link to="/contact">Contact</Link>
             </li>
+            {decodeToken.role === "ADMIN" ? (
+              <li>
+                <Link to="/admin">Dashborad</Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/create">Upload Movie</Link>
+              </li>
+            )}
           </ul>
         </div>
         <div className="icons">
           <div>
-            {search ? (
-              <>
-                <i
-                  className="fa-regular fa-circle-xmark"
-                  style={{ fontSize: "1.8rem" }}
-                  onClick={() => setSearch(false)}
-                ></i>
-                <div className="search">
-                  <input type="text" placeholder="Search" />
-                </div>
-              </>
-            ) : (
-              <i
-                className="fa-regular fa-magnifying-glass"
-                onClick={() =>{
-                  navigate("/search");
-                  setSearch(true);
-
-                } }
-              ></i>
-            )}
+            <i
+              className="fa-regular fa-magnifying-glass"
+              onClick={() => {
+                navigate("/search");
+              }}
+            ></i>
           </div>
           <div>
             <i
               className="fa-sharp fa-solid fa-bell"
-              onClick={() => setNotification(notification ? false : true)}
+              onClick={() =>
+                setNotificationDisplay(notificationDisplay ? false : true)
+              }
             ></i>
-            <span>1</span>
-            {notification && (
-              <div className="notifications">
-                <h3>Notifications</h3>
-                <div className="notification-item">
-                  <img
-                    src="../../images/icon.png"
-                    alt="Profile"
-                    className="avatar"
-                  />
-                  <div className="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <span className="time">16 hours ago</span>
-                  </div>
+            {notifications.length > 0 && <span>{notifications.length}</span>}
+            {notificationDisplay && (
+              <>
+                <div className="notifications">
+                  <h3>Notifications</h3>
+                  {notifications.length === 0 ? (
+                    <p>No new notifications</p>
+                  ) : (
+                    notifications.map((notification, index) => (
+                      <NotificationCard
+                        key={index}
+                        notification={notification}
+                      />
+                    ))
+                  )}
                 </div>
-              </div>
+              </>
             )}
           </div>
           <div>
@@ -138,19 +138,36 @@ const Navbar = () => {
                   <Link to="/movies">Movies</Link>
                 </li>
                 <li>
+                  <Link to="/watchlist">Watch List</Link>
+                </li>
+                <li>
                   <Link to="/about">About Us</Link>
                 </li>
                 <li>
                   <Link to="/profile">My Profile</Link>
                 </li>
                 <li>
-                  <Link to="/watchlist">Watch List</Link>
-                </li>
-                <li>
                   <Link to="/contact">Contact</Link>
                 </li>
+                {decodeToken.role === "ADMIN" ? (
+                  <li>
+                    <Link to="/admin">Dashborad</Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/create">Upload Movie</Link>
+                  </li>
+                )}
               </ul>
-              <button className="btn">Log Out</button>
+              <button
+                className="btn"
+                onClick={() => {
+                  removeCookie("token");
+                  navigate("/");
+                }}
+              >
+                Log Out
+              </button>
             </div>
           </div>
           <div className="overly"></div>
