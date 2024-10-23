@@ -1,0 +1,101 @@
+.createContent {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.createContent form {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  position: absolute;
+  gap: 15px;
+}
+.createContent form .btns input {
+  display: none;
+}
+.createContent form .btns {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.createContent form .btns label {
+  background-color: rgb(30, 39, 45);
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  color: rgba(183, 190, 196, 0.829);
+}
+.createContent form .btns label:hover {
+  background-color: rgb(231, 43, 43);
+}
+.createContent form .btns .uploaded {
+  background-color: #1a1f23;
+  color: chartreuse;
+  border: 1px solid chartreuse;
+}
+.createContent form input {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(30, 39, 45);
+  color: white;
+}
+.createContent .cont {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.createContent .cont .genre {
+  background-color: rgb(30, 39, 45);
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: rgba(183, 190, 196, 0.829);
+}
+.createContent .cont .genre select {
+  background-color: rgba(241, 50, 50, 0.562);
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px 10px;
+  max-width: 70px;
+}
+.createContent button {
+  background-color: rgb(231, 43, 43);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgba(216, 205, 205, 0.815);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.createContent .progress-bar {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+.createContent .progress {
+  height: 20px;
+  background-color: #4caf50;
+  width: 0;
+  transition: width 0.4s ease;
+  text-align: center;
+  color: white;
+  line-height: 20px;
+  font-weight: bold;
+}
+@media (max-width: 999px) {
+  .createContent form {
+    width: 90%;
+  }
+}

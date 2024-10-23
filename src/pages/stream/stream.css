@@ -2,21 +2,10 @@
   background: #000;
   color: white;
 }
-.content-details .video-container {
-  margin-top: 4rem;
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  margin-bottom: 2rem;
-}
 .content-details .video-container .responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   border: none;
+  transform: translateY(-10%);
 }
 .content-details .movie-description .release-date {
   font-size: 1.5rem;
@@ -28,26 +17,51 @@
   height: auto;
   border-bottom: 1px solid #333;
 }
-.content-details .share-links {
-  margin-top: 1rem;
-  text-align: left;
+.comment-section {
+  margin-top: 2rem;
+}
+.comment-form {
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.comment-form input {
+  padding: 12px;
+  width: 350px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(30, 39, 45);
+  color: white;
+}
+.comment-form textarea {
+  padding: 0.5rem;
+  width: 350px;
+  height: 80px;
+  font-size: 1rem;
+  background-color: rgb(30, 39, 45);
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  resize: none;
+}
+.comment-form button {
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.comment-item {
   margin-bottom: 1rem;
-  border-bottom: 1px solid #333;
 }
-.content-details .share-links h2 {
-  margin-bottom: 1rem;
-}
-.content-details .share-links a {
-  color: #e50914;
-  margin: 0 10px;
-  text-decoration: none;
-}
-.content-details .share-links .share-links-a .icons {
-  max-width: 50px;
-  max-height: 50px;
-}
-.content-details .share-links a:hover {
-  text-decoration: underline;
+.comment-item p {
+  margin: 0.2rem 0;
 }
 @media (max-width: 768px) {
   .content-header .title {
@@ -58,5 +72,9 @@
   }
   .content-details .video-container .responsive-iframe {
     height: 200px;
+  }
+  .comment-form textarea,
+  .comment-form input {
+    width: 80%;
   }
 }

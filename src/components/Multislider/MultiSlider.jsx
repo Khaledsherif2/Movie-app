@@ -6,7 +6,7 @@ import "swiper/css/autoplay";
 import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import Card from "../Card/Card";
 
-export default function MultiSlider() {
+export default function MultiSlider({ movies }) {
   return (
     <div className="mlti-swip">
       <Swiper
@@ -34,51 +34,15 @@ export default function MultiSlider() {
           },
         }}
       >
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Card />{" "}
-        </SwiperSlide>
+        {movies && movies.length > 0 ? (
+          movies.map((movie) => (
+            <SwiperSlide key={movie._id}>
+              <Card movie={movie} />
+            </SwiperSlide>
+          ))
+        ) : (
+          <p>No movies available</p>
+        )}
       </Swiper>
     </div>
   );

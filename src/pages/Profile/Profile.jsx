@@ -50,7 +50,7 @@ function Profile() {
     setError("");
     try {
       const res = await axios.post(
-        "http://192.168.1.5:8888/api/users/changePassword",
+        `${import.meta.env.VITE_USERS}/changePassword`,
         {
           id: decodeToken._id,
           currentPassword: inputFields.currentPassword,
@@ -88,7 +88,7 @@ function Profile() {
 
     try {
       const res = await axios.patch(
-        "http://192.168.1.5:8888/api/users/updateUserProfile",
+        `${import.meta.env.VITE_USERS}/updateUserProfile`,
         formData,
         {
           headers: {

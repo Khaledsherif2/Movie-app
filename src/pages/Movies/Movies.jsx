@@ -1,67 +1,130 @@
-import React from "react";
 import "./Movies.css";
+import { useEffect, useContext, useState } from "react";
+import { useNavigate } from "react-router";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
+import { LoginContext } from "../../context/Login";
+import { fetchPage } from "../../api/fetchPage";
+import Loader from "../../components/Loader/Loader";
+import { toast } from "react-toastify";
 
 function Movies() {
+  const navigate = useNavigate();
+  const { token } = useContext(LoginContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [movies, setMovies] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const genres = [
+    "All movies",
+    "Action",
+    "Adventure",
+    "Animation",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "History",
+    "Horror",
+    "Music",
+    "Mystery",
+    "Romance",
+    "Sci-fi",
+    "TV Movie",
+    "Thriller",
+  ];
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+  }, [token, navigate]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchPage(token, page, selectedGenre)
+      .then((data) => {
+        setPage(data.page);
+        setMovies(data.movies);
+        setTotalPages(data.totalPages);
+        setIsLoading(false);
+      })
+      .catch((e) => toast.error(e.message));
+  }, [token, page, selectedGenre]);
+
+  const handleGenreChange = (genre) => {
+    setSelectedGenre(genre === "All movies" ? "" : genre);
+    setPage(1);
+  };
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setPage(newPage);
+    }
+  };
+
   return (
-    <div className="movies">
+    <>
       <Navbar />
       <Header name="Movies" />
-      <div className="movies-container">
-        
-        <div className="filter-movie">
-          <button className="btn-filter">Action </button>
-          <button className="btn-filter">Adventure </button>
-          <button className="btn-filter">Animation </button>
-          <button className="btn-filter">Comedy </button>
-          <button className="btn-filter">Crime </button>
-          <button className="btn-filter">Documentary </button>
-          <button className="btn-filter">Drama </button>
-          <button className="btn-filter">Family </button>
-          <button className="btn-filter">Fantasy </button>
-          <button className="btn-filter">History </button>
-          <button className="btn-filter">Horror </button>
-          <button className="btn-filter">Music </button>
-          <button className="btn-filter">Mystery </button>
-          <button className="btn-filter">Romance </button>
-          <button className="btn-filter">Science </button>
-          <button className="btn-filter">TV Movie </button>
-          <button className="btn-filter">Thriller </button>
-          <button className="btn-filter">War </button>
+      <div className="movies">
+        <div className="movies-container">
+          <div className="filter-movie">
+            <select
+              onChange={(e) => handleGenreChange(e.target.value)}
+              value={selectedGenre ? selectedGenre : "All movies"}
+            >
+              {genres.map((genre) => (
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="moviescard-container">
+            {isLoading ? (
+              <Loader />
+            ) : movies && movies.length > 0 ? (
+              movies.map((movie) => <Card movie={movie} key={movie._id} />)
+            ) : (
+              <p>No movies available 😔</p>
+            )}
+          </div>
+          <div className="pages">
+            <button
+              onClick={() => handlePageChange(page - 1)}
+              disabled={page === 1}
+              style={page === 1 ? { display: "none" } : { display: "block" }}
+            >
+              &lt; Previous
+            </button>
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                className={page === i + 1 ? "active" : ""}
+                onClick={() => handlePageChange(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(page + 1)}
+              disabled={page === totalPages}
+              style={
+                page === totalPages ? { display: "none" } : { display: "block" }
+              }
+            >
+              Next &gt;
+            </button>
+          </div>
         </div>
-
-
-        <div className="moviescard-container">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
-
-
       </div>
-    </div>
+    </>
   );
 }
 

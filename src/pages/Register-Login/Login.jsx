@@ -1,14 +1,17 @@
 import Header from "../../components/Header/Header";
 import "./Login.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { jwtDecode } from "jwt-decode";
 import { LoginContext } from "../../context/Login";
 import { EmailContext } from "../../context/Email";
+import { SocketContext } from "../../context/Socket";
 
 function Login() {
+  const socket = useContext(SocketContext);
   const { setCookie } = useContext(LoginContext);
   const { email } = useContext(EmailContext);
   const navigate = useNavigate();
@@ -84,6 +87,8 @@ function Login() {
         password: inputFields.password,
       });
       const token = res.data.token;
+      let decode = jwtDecode(token);
+      socket.emit("registerSocket", decode._id);
       const cookieOptions = rememberMe
         ? { path: "/", maxAge: 60 * 60 * 24 * 2 }
         : { path: "/" };
