@@ -7,7 +7,7 @@ export const SocketContext = createContext();
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   useEffect(() => {
-    const newSocket = io("http://192.168.1.4:8888/", {
+    const newSocket = io(`${import.meta.env.VITE_SOCKET_LINK}`, {
       transports: ["websocket"],
     });
     setSocket(newSocket);
