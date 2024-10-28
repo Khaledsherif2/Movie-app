@@ -1,9 +1,8 @@
 import "./Card.css";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
-import { fetchMovie } from "../../api/fetchMovie";
-import { RemoveFromWatchlist } from "../../api/removeFromWatchlist";
-import { AddToWatchlist } from "../../api/addToWatchlist";
+import { getMovie } from "../../api/movies";
+import { addToWatchlist, removeFromWatchlist } from "../../api/watchlist";
 import { LoginContext } from "../../context/Login";
 import { MovieContext } from "../../context/WatchMovie";
 import { toast } from "react-toastify";
@@ -14,7 +13,7 @@ const Card = ({ movie, isInWatchList = false, setUpdate }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    fetchMovie(token, movie._id)
+    getMovie(token, movie._id)
       .then((data) => {
         setMovie(data);
         navigate("/stream");
@@ -24,14 +23,14 @@ const Card = ({ movie, isInWatchList = false, setUpdate }) => {
 
   let handleWatchList = (movie) => {
     if (isInWatchList) {
-      RemoveFromWatchlist(token, movie._id)
+      removeFromWatchlist(token, movie._id)
         .then((data) => {
           toast.success(data);
           setUpdate(true);
         })
         .catch((e) => toast.error(e.message));
     } else {
-      AddToWatchlist(token, movie._id)
+      addToWatchlist(token, movie._id)
         .then((data) => {
           toast.success(data);
         })

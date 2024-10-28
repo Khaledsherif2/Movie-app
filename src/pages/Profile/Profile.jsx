@@ -1,10 +1,8 @@
 import "./Profile.css";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
-import { useState, useEffect, useContext } from "react";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
-import axios from "axios";
+import { useState, useContext } from "react";
+import { updatePassword, updateProfile } from "../../api/users";
 import { LoginContext } from "../../context/Login";
 
 function Profile() {
@@ -21,14 +19,6 @@ function Profile() {
     newPassword: "",
     confirmNewPassword: "",
   });
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
 
   const handleChange = (e) => {
     setInputFields({ ...inputFields, [e.target.name]: e.target.value });
@@ -48,21 +38,14 @@ function Profile() {
       return;
     }
     setError("");
-    try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_USERS}/changePassword`,
-        {
-          id: decodeToken._id,
-          currentPassword: inputFields.currentPassword,
-          newPassword: inputFields.newPassword,
-        }
-      );
-      if (res.status === 202) {
-        toast.success(res.data.message);
-        setEdit(false);
-      }
-    } catch (err) {
-      toast.error(err.response.data.message);
+    const data = {
+      id: decodeToken._id,
+      currentPassword: inputFields.currentPassword,
+      newPassword: inputFields.newPassword,
+    };
+    const result = await updatePassword(data, token);
+    if (result.success) {
+      setEdit(false);
     }
   };
   const handleUpdateProfile = async (e) => {
@@ -86,27 +69,10 @@ function Profile() {
       formData.append("avatar", image);
     }
 
-    try {
-      const res = await axios.patch(
-        `${import.meta.env.VITE_USERS}/updateUserProfile`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (res.status === 202) {
-        const token = res.data.token;
-        setCookie("token", token, { path: "/" });
-        toast.success("Profile updated successfully");
-        setEdit(false);
-      } else {
-        toast.error("Failed to update profile");
-      }
-    } catch (err) {
-      toast.error(err.response.data.message);
+    const result = await updateProfile(formData, token);
+    if (result.success) {
+      setCookie("token", result.token, { path: "/" });
+      setEdit(false);
     }
   };
 

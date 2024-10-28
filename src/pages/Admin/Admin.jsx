@@ -5,11 +5,13 @@ import { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import Card from "../../components/Card/Card";
 import { LoginContext } from "../../context/Login";
-import { fetchPending } from "../../api/fetchPending";
-import { setMovieStatus } from "../../api/setMovieStatus";
-import { fetchMovies } from "../../api/fetchAll";
-import { updateMovie } from "../../api/updateMovie";
-import { deleteMovie } from "../../api/deleteMovie";
+import {
+  getPendingMovies,
+  moderateMovies,
+  getAllMovies,
+  updateMovie,
+  deleteMovie,
+} from "../../api/movies";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 
@@ -31,61 +33,35 @@ function Admin() {
   });
 
   useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
-
-  useEffect(() => {
     setIsLoading(true);
-    fetchPending(token)
-      .then((data) => {
-        setMovies(data);
-        setIsLoading(false);
-      })
-      .catch((e) => {
-        toast.error(e.message);
-        setIsLoading(false);
-      });
+    getPendingMovies(token).then((data) => {
+      setMovies(data);
+      setIsLoading(false);
+    });
   }, [token, status]);
 
   useEffect(() => {
     if (update) {
       setIsLoading(true);
-      fetchMovies(token)
-        .then((data) => {
-          setMovies(data);
-          setIsLoading(false);
-        })
-        .catch((e) => {
-          toast.error(e.message);
-          setIsLoading(false);
-        });
+      getAllMovies(token).then((data) => {
+        setMovies(data);
+        setIsLoading(false);
+      });
     }
   }, [update, token, editingMovie]);
 
   const HandleMovie = (id, status) => {
-    setMovieStatus(token, id, status)
-      .then((data) => {
-        toast.success(data);
-        setStatus(true);
-      })
-      .catch((e) => {
-        toast.error(e.message);
-        setStatus(false);
-      });
+    moderateMovies(token, id, status).then((data) => {
+      toast.success(data);
+      setStatus(true);
+    });
   };
 
   const handleDelete = (id) => {
-    deleteMovie(token, id)
-      .then(() => {
-        toast.success("Movie deleted successfully");
-        setEditingMovie(null);
-      })
-      .catch((e) => {
-        toast.error(e.response.data.message);
-      });
+    deleteMovie(token, id).then(() => {
+      toast.success("Movie deleted successfully");
+      setEditingMovie(null);
+    });
   };
 
   const handleUpdateClick = (movie) => {
@@ -102,14 +78,10 @@ function Admin() {
 
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
-    updateMovie(token, editingMovie, formValues)
-      .then(() => {
-        toast.success("Movie updated successfully");
-        setEditingMovie(null);
-      })
-      .catch((e) => {
-        toast.error(e.response.data.message);
-      });
+    updateMovie(token, editingMovie, formValues).then(() => {
+      toast.success("Movie updated successfully");
+      setEditingMovie(null);
+    });
   };
 
   return (

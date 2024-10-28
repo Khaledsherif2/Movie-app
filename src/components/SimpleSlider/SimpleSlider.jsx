@@ -2,9 +2,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./SimpleSlider.css";
+import { useContext } from "react";
 import { Navigation } from "swiper/modules";
+import { LoginContext } from "../../context/Login";
+import { toast } from "react-toastify";
+import { addToWatchlist } from "../../api/watchlist";
 
 export default function SimpleSlidesadfasdfr({ movies }) {
+  const { token } = useContext(LoginContext);
+
+  let handleWatchList = (movie) => {
+    addToWatchlist(token, movie._id)
+      .then((data) => {
+        toast.success(data);
+      })
+      .catch((e) => toast.info(e.message));
+  };
   return (
     <div className="swip">
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -24,7 +37,9 @@ export default function SimpleSlidesadfasdfr({ movies }) {
                 </video>
                 <div className="info">
                   <h3>{movie.title}</h3>
-                  <button>Watch list</button>
+                  <button onClick={() => handleWatchList(movie)}>
+                    Watch list
+                  </button>
                 </div>
               </div>
             </SwiperSlide>

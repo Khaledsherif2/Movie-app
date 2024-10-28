@@ -7,7 +7,7 @@ export const SocketContext = createContext();
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   useEffect(() => {
-    const newSocket = io("http://localhost:8888", {
+    const newSocket = io("http://192.168.1.4:8888/", {
       transports: ["websocket"],
     });
     setSocket(newSocket);

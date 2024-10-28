@@ -12,6 +12,8 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
 
+  // console.log(decodeToken);
+
   return (
     <nav className="navbar">
       <div className="container">
