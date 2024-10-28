@@ -15,9 +15,15 @@ export const NotificationProvider = ({ children }) => {
       socket.on("newMovieReleased", (data) => {
         setNotifications((prevNotifications) => [...prevNotifications, data]);
       });
+
+      socket.on("movieRejected", (data) => {
+        setNotifications((prevNotifications) => [...prevNotifications, data]);
+      });
+
       return () => {
         socket.off("newMovie");
         socket.off("newMovieReleased");
+        socket.off("movieRejected");
       };
     }
   }, [socket]);

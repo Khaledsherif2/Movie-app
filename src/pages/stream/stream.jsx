@@ -1,22 +1,26 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
+import MultiSlider from "../../components/Multislider/MultiSlider";
 import "./stream.css";
-import { useEffect, useContext } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useContext, useState } from "react";
 import { LoginContext } from "../../context/Login";
 import { MovieContext } from "../../context/WatchMovie";
+import Loader from "../../components/Loader/Loader";
+import { getRecommendations } from "../../api/movies";
 
 function Stream() {
-  const navigate = useNavigate();
-  const { decodeToken } = useContext(LoginContext);
+  const { token } = useContext(LoginContext);
   const { movie } = useContext(MovieContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
+    setIsLoading(true);
+    getRecommendations(token).then((data) => {
+      setRecommendations(data);
+      setIsLoading(false);
+    });
+  }, [token]);
 
   return (
     <>
@@ -38,6 +42,11 @@ function Stream() {
             <p className="description">{movie.description}</p>
           </div>
         </section>
+        <div className="mlti-container ">
+          Recommended for you
+          <hr />
+          {isLoading ? <Loader /> : <MultiSlider movies={recommendations} />}
+        </div>
       </div>
     </>
   );

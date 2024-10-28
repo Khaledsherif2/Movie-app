@@ -3,19 +3,18 @@ import Navbar from "../../components/Navbar/Navbar";
 import SimpleSlider from "../../components/SimpleSlider/SimpleSlider";
 import "./Home.css";
 import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router";
 import { LoginContext } from "../../context/Login";
-import { fetchMovies } from "../../api/fetchAll";
-import { fetchPopular } from "../../api/fetchPopular";
-import { fetchTopRated } from "../../api/fetchTopRated";
-import { fetchRecommendations } from "../../api/fetchRecommendations";
+import {
+  getAllMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+  getRecommendations,
+} from "../../api/movies";
 import Loader from "../../components/Loader/Loader";
-import { toast } from "react-toastify";
 
 function Home() {
-  const { token, decodeToken } = useContext(LoginContext);
+  const { token } = useContext(LoginContext);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
   const [main, setMain] = useState([]);
   const [movies, setMovies] = useState([]);
   const [popular, setPopular] = useState([]);
@@ -23,42 +22,30 @@ function Home() {
   const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
-
-  useEffect(() => {
     setIsLoading(true);
     let limit = 3;
     Promise.all([
-      fetchMovies(token),
-      fetchPopular(token),
-      fetchPopular(token, limit),
-      fetchTopRated(token),
-      fetchRecommendations(token),
-    ])
-      .then(
-        ([
-          moviesData,
-          popularData,
-          mainData,
-          topRatedData,
-          recommendationsData,
-        ]) => {
-          setMovies(moviesData);
-          setPopular(popularData);
-          setMain(mainData);
-          setTopRated(topRatedData);
-          setRecommendations(recommendationsData);
-          setIsLoading(false);
-        }
-      )
-      .catch((e) => {
-        toast.error(e.message);
+      getAllMovies(token),
+      getPopularMovies(token),
+      getPopularMovies(token, limit),
+      getTopRatedMovies(token),
+      getRecommendations(token),
+    ]).then(
+      ([
+        moviesData,
+        popularData,
+        mainData,
+        topRatedData,
+        recommendationsData,
+      ]) => {
+        setMovies(moviesData);
+        setPopular(popularData);
+        setMain(mainData);
+        setTopRated(topRatedData);
+        setRecommendations(recommendationsData);
         setIsLoading(false);
-      });
+      }
+    );
   }, [token]);
 
   return (

@@ -1,22 +1,12 @@
 import "./Landing.css";
-import { useEffect, useContext } from "react";
-import MultiSlider from "../../components/Multislider/MultiSlider";
+import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { LoginContext } from "../../context/Login";
 import { EmailContext } from "../../context/Email";
 import Accordion from "../../components/Accordion/Accordion";
 
 const Landing = () => {
-  const { decodeToken } = useContext(LoginContext);
   const { setEmail } = useContext(EmailContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (decodeToken) {
-      navigate("/home");
-      return;
-    }
-  }, [decodeToken, navigate]);
 
   return (
     <div className="landing-page">
@@ -100,10 +90,6 @@ const Landing = () => {
         <div className="watch-img">
           <img src="../../../img-landing/landing-watch.webp" />
         </div>
-      </div>
-      <div className="latest-movies">
-        <p className="latest-movies-title">Latest & Popular Movies</p>
-        <MultiSlider />
       </div>
       <Accordion />
     </div>

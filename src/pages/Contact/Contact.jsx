@@ -1,15 +1,11 @@
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Contact.css";
-import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router";
-import { LoginContext } from "../../context/Login";
+import { useState } from "react";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 
 const Contact = () => {
-  const { decodeToken } = useContext(LoginContext);
-  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,13 +13,6 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-
-  useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

@@ -1,16 +1,13 @@
 import "./Movies.css";
 import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import { LoginContext } from "../../context/Login";
-import { fetchPage } from "../../api/fetchPage";
+import { getPage } from "../../api/movies";
 import Loader from "../../components/Loader/Loader";
-import { toast } from "react-toastify";
 
 function Movies() {
-  const navigate = useNavigate();
   const { token } = useContext(LoginContext);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -39,22 +36,13 @@ function Movies() {
   ];
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
-  }, [token, navigate]);
-
-  useEffect(() => {
     setIsLoading(true);
-    fetchPage(token, page, selectedGenre)
-      .then((data) => {
-        setPage(data.page);
-        setMovies(data.movies);
-        setTotalPages(data.totalPages);
-        setIsLoading(false);
-      })
-      .catch((e) => toast.error(e.message));
+    getPage(token, page, selectedGenre).then((data) => {
+      setPage(data.page);
+      setMovies(data.movies);
+      setTotalPages(data.totalPages);
+      setIsLoading(false);
+    });
   }, [token, page, selectedGenre]);
 
   const handleGenreChange = (genre) => {

@@ -59,9 +59,15 @@
 .swip .info button:hover {
   background-color: rgb(168, 34, 34);
 }
+@media (max-width: 991px) {
+  .swip {
+    top: -155px;
+    right: 0;
+  }
+}
 @media (max-width: 768px) {
   .swip {
-    top: -20px;
+    top: -90px;
     right: 0;
   }
   .swip .info h3 {
@@ -72,9 +78,9 @@
     margin-top: 2px;
     font-size: 14px;
   }
-  .swip .swiper-button-next,
-  .swiper-button-prev {
-    display: none;
+  .swip .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 22px;
   }
   .swip .info {
     top: 50%;

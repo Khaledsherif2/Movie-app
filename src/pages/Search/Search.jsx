@@ -1,17 +1,14 @@
 import "./Search.css";
 import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import { LoginContext } from "../../context/Login";
-import { fetchSearch } from "../../api/fetchSearch";
+import { searchMovies } from "../../api/movies";
 import Loader from "../../components/Loader/Loader";
-import { toast } from "react-toastify";
 
 function Search() {
-  const navigate = useNavigate();
-  const { token, decodeToken } = useContext(LoginContext);
+  const { token } = useContext(LoginContext);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -19,22 +16,13 @@ function Search() {
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
-
-  useEffect(() => {
     setIsLoading(true);
-    fetchSearch(token, page, search)
-      .then((data) => {
-        setPage(data.page);
-        setMovies(data.movies);
-        setTotalPages(data.totalPages);
-        setIsLoading(false);
-      })
-      .catch((e) => toast.error(e.message));
+    searchMovies(token, page, search).then((data) => {
+      setPage(data.page);
+      setMovies(data.movies);
+      setTotalPages(data.totalPages);
+      setIsLoading(false);
+    });
   }, [token, page, search]);
 
   const handlePageChange = (newPage) => {
@@ -47,7 +35,10 @@ function Search() {
     <>
       <Navbar />
       <Header name="Search" />
-      <div className="search">
+      <div
+        className="search"
+        style={Array.isArray(movies) ? {} : { height: "60vh" }}
+      >
         <div className="container">
           <input
             type="text"

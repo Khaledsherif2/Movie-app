@@ -1,11 +1,11 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
 import "./Create.css";
 import { toast } from "react-toastify";
 import { LoginContext } from "../../context/Login";
-import { AddMovie } from "../../api/addMovie";
+import { addMovie } from "../../api/movies";
 
 function Create() {
   const { token } = useContext(LoginContext);
@@ -24,13 +24,6 @@ function Create() {
     year: "",
     video: null,
   });
-
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
-  }, [token, navigate]);
 
   const handleGenre = (e) => {
     const value = e.target.value;
@@ -94,13 +87,9 @@ function Create() {
     genre.forEach((g) => {
       formData.append("genre", g);
     });
-    try {
-      const message = await AddMovie(token, formData, setUploadProgress);
-      toast.success(message);
-      navigate("/movies");
-    } catch (e) {
-      toast.error(e.message);
-    }
+    const message = await addMovie(token, formData, setUploadProgress);
+    toast.success(message);
+    navigate("/movies");
   };
   return (
     <>
@@ -133,12 +122,7 @@ function Create() {
               placeholder="Rate"
               onChange={handleChange}
             />
-            <input
-              type="date"
-              name="year"
-              placeholder="Year"
-              onChange={handleChange}
-            />
+            <input type="date" name="year" onChange={handleChange} />
             <div className="btns">
               <label htmlFor="poster" className={`${poster ? "uploaded" : ""}`}>
                 Choose Poster
@@ -181,7 +165,7 @@ function Create() {
                   <option value="mystery">Mystery</option>
                   <option value="romance">Romance</option>
                   <option value="sci-fi">Science Fiction</option>
-                  <option value="tV movie">TV Movie</option>
+                  <option value="tv movie">TV Movie</option>
                   <option value="thriller">Thriller</option>
                   <option value="war">War</option>
                 </select>

@@ -207,8 +207,13 @@
   .navbar .container .links {
     display: none;
   }
+  .navbar .container .icons > div {
+    width: 50px;
+    height: 50px;
+  }
   .navbar .container .icons i {
     display: block;
+    font-size: 2rem;
   }
   .navbar .container .icons .btn {
     display: none;
@@ -220,6 +225,18 @@
     display: block;
   }
   .navbar .container {
-    padding: 0;
+    padding: 45px 0;
+  }
+}
+@media (max-width: 768px) {
+  .navbar .container {
+    padding: 15px;
+  }
+  .navbar .container .icons > div {
+    width: 30px;
+    height: 30px;
+  }
+  .navbar .container .icons i {
+    font-size: 1.2rem;
   }
 }

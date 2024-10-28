@@ -13,55 +13,14 @@
 }
 .content-details .movie-description {
   margin-top: 1.5rem;
+  padding: 1.5rem;
   text-align: left;
   height: auto;
   border-bottom: 1px solid #333;
 }
-.comment-section {
-  margin-top: 2rem;
-}
-.comment-form {
-  margin-top: 10px;
-  width: 100%;
-  color: white;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-}
-.comment-form input {
-  padding: 12px;
-  width: 350px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(30, 39, 45);
-  color: white;
-}
-.comment-form textarea {
-  padding: 0.5rem;
-  width: 350px;
-  height: 80px;
-  font-size: 1rem;
-  background-color: rgb(30, 39, 45);
-  color: white;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  resize: none;
-}
-.comment-form button {
-  padding: 0.5rem 1rem;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.comment-item {
-  margin-bottom: 1rem;
-}
-.comment-item p {
-  margin: 0.2rem 0;
+.stream .mlti-container {
+  margin-top: 1rem;
+  transform: translate(0);
 }
 @media (max-width: 768px) {
   .content-header .title {

@@ -3,9 +3,13 @@ const NotificationCard = ({ notification }) => {
     <div className="notification-item">
       <img
         src={
-          notification.user
+          notification.user && notification.user.avatar
             ? notification.user.avatar
-            : notification.movie.poster.src
+            : notification.movie &&
+              notification.movie.poster &&
+              notification.movie.poster.src
+            ? notification.movie.poster.src
+            : "../../../images/403-forbidden.png"
         }
         alt="Profile"
         className="avatar"

@@ -1,22 +1,11 @@
-import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router";
+import { useState } from "react";
 import "./About.css";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
-import { LoginContext } from "../../context/Login";
 import Accordion from "../../components/Accordion/Accordion";
 
 function About() {
   const [showIframe, setShowIframe] = useState(false);
-  const { decodeToken } = useContext(LoginContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
 
   const handleClick = () => {
     setShowIframe(true);
