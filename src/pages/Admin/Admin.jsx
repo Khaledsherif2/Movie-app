@@ -99,7 +99,12 @@ function Admin() {
         </div>
         <div
           className="admin-container"
-          style={{ height: movies && movies.length === 0 ? "80vh" : "auto" }}
+          style={
+            (!movies || movies.length === 0) &&
+            (!srchMovies || srchMovies.length === 0)
+              ? { height: "80vh" }
+              : { height: "auto" }
+          }
         >
           {editingMovie ? (
             <form onSubmit={handleUpdateSubmit}>
