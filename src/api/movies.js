@@ -151,7 +151,7 @@ export const getPendingMovies = async (token) => {
   }
 };
 
-export const searchMovies = async (token, page, search = "") => {
+export const searchMovies = async (token, search = "", page) => {
   try {
     const res = await axios.get(
       `${

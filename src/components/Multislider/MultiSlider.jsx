@@ -13,9 +13,6 @@ export default function MultiSlider({ movies }) {
         slidesPerView={5}
         spaceBetween={30}
         freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
         autoplay={{
           delay: 20000,
           disableOnInteraction: false,

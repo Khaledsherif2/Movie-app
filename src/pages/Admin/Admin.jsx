@@ -11,6 +11,7 @@ import {
   getAllMovies,
   updateMovie,
   deleteMovie,
+  searchMovies,
 } from "../../api/movies";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
@@ -19,6 +20,7 @@ function Admin() {
   const navigate = useNavigate();
   const { token, decodeToken } = useContext(LoginContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [search, setSearch] = useState();
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState(false);
   const [update, setUpdate] = useState(false);
@@ -41,14 +43,22 @@ function Admin() {
   }, [token, status]);
 
   useEffect(() => {
-    if (update) {
+    setIsLoading(true);
+    searchMovies(token, search).then((data) => {
+      setMovies(data.movies);
+      setIsLoading(false);
+    });
+  }, [token, search]);
+
+  useEffect(() => {
+    if (update || !search) {
       setIsLoading(true);
       getAllMovies(token).then((data) => {
         setMovies(data);
         setIsLoading(false);
       });
     }
-  }, [update, token, editingMovie]);
+  }, [update, token, editingMovie, search]);
 
   const HandleMovie = (id, status) => {
     moderateMovies(token, id, status).then((data) => {
@@ -97,7 +107,10 @@ function Admin() {
             Update Movie
           </button>
         </div>
-        <div className="admin-container">
+        <div
+          className="admin-container"
+          style={{ height: movies && movies.length === 0 ? "80vh" : "auto" }}
+        >
           {editingMovie ? (
             <form onSubmit={handleUpdateSubmit}>
               <input
@@ -157,6 +170,14 @@ function Admin() {
             </form>
           ) : update ? (
             <div className="movies">
+              <div className="searchInput">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  maxLength="28"
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
               {isLoading ? (
                 <Loader />
               ) : movies && movies.length > 0 ? (

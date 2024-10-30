@@ -17,7 +17,7 @@ function Search() {
 
   useEffect(() => {
     setIsLoading(true);
-    searchMovies(token, page, search).then((data) => {
+    searchMovies(token, search, page).then((data) => {
       setPage(data.page);
       setMovies(data.movies);
       setTotalPages(data.totalPages);
@@ -49,8 +49,12 @@ function Search() {
           <div className="result">
             {isLoading ? (
               <Loader />
-            ) : movies && movies.length > 0 ? (
-              movies.map((movie) => <Card movie={movie} key={movie._id} />)
+            ) : search ? (
+              movies && movies.length > 0 ? (
+                movies.map((movie) => <Card movie={movie} key={movie._id} />)
+              ) : (
+                <p>No result found 🤔</p>
+              )
             ) : (
               <p>Enter a movie name 💡</p>
             )}
