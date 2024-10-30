@@ -1,4 +1,4 @@
-import "./landing.css";
+import "./Landing.css";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { EmailContext } from "../../context/Email";
