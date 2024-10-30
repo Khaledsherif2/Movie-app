@@ -8,17 +8,23 @@
   line-height: 2;
   font-weight: 700;
   transform: translateY(-140px);
-  margin-bottom: 100px;
 }
 .mlti-container hr {
   border: 0.5px solid rgba(129, 121, 121, 0.473);
   height: 0.5px;
   margin-bottom: 25px;
 }
+@media (max-width: 991px) {
+  .mlti-container {
+    padding: 0px 20px;
+    transform: translateY(-160px);
+    margin-bottom: 50px;
+  }
+}
 @media (max-width: 768px) {
   .mlti-container {
     padding: 0px 5px;
-    transform: translateY(-10px);
+    transform: translateY(-100px);
     margin-bottom: 30px;
   }
 }

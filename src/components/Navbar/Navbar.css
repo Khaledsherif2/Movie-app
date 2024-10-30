@@ -20,12 +20,12 @@
   width: 90%;
 }
 .navbar .container .links {
-  flex: 3;
+  flex: 5;
 }
 .navbar .container .links ul {
   display: flex;
   align-items: center;
-  gap: 17px;
+  gap: 18px;
 }
 .navbar .container .links ul a {
   color: white;
@@ -47,7 +47,6 @@
   cursor: pointer;
   position: relative;
 }
-
 .navbar .container .icons .icon-img {
   overflow: hidden;
 }
@@ -63,17 +62,6 @@
 }
 .navbar .container .icons > i {
   display: none;
-}
-.navbar .container .icons div .search {
-  position: absolute;
-  top: -5px;
-  right: 40px;
-}
-.navbar .container .icons div .search input {
-  border-radius: 30px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 250px;
 }
 .navbar .container .icons > div:nth-child(2) > span {
   position: absolute;
@@ -93,7 +81,7 @@
   position: absolute;
   top: 211%;
   right: 0;
-  width: 250px;
+  width: 270px;
   font-family: Arial, sans-serif;
   background-color: #ddd;
 }
@@ -162,8 +150,9 @@
 }
 .menu {
   display: none;
-  background-color: #fff;
-  width: 300px;
+  background-color: #000;
+  color: #eee;
+  width: 240px;
   padding: 20px;
   height: 100vh;
   position: fixed;
@@ -201,6 +190,9 @@
   font-weight: bold;
   color: #aaa;
 }
+.menu .content ul a:hover {
+  color: #d62c1a;
+}
 .navbar .menu .btn {
   margin-top: 10px;
 }
@@ -219,8 +211,13 @@
   .navbar .container .links {
     display: none;
   }
+  .navbar .container .icons > div {
+    width: 50px;
+    height: 50px;
+  }
   .navbar .container .icons i {
     display: block;
+    font-size: 2rem;
   }
   .navbar .container .icons .btn {
     display: none;
@@ -232,6 +229,18 @@
     display: block;
   }
   .navbar .container {
-  padding: 0;
+    padding: 45px 0;
+  }
+}
+@media (max-width: 768px) {
+  .navbar .container {
+    padding: 15px;
+  }
+  .navbar .container .icons > div {
+    width: 30px;
+    height: 30px;
+  }
+  .navbar .container .icons i {
+    font-size: 1.2rem;
   }
 }

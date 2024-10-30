@@ -1,22 +1,11 @@
-import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router";
+import { useState } from "react";
 import "./About.css";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
-import { LoginContext } from "../../context/Login";
 import Accordion from "../../components/Accordion/Accordion";
 
 function About() {
   const [showIframe, setShowIframe] = useState(false);
-  const { decodeToken } = useContext(LoginContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!decodeToken) {
-      navigate("/login");
-      return;
-    }
-  }, [decodeToken, navigate]);
 
   const handleClick = () => {
     setShowIframe(true);
@@ -85,7 +74,7 @@ function About() {
               ></i>
               <iframe
                 className="frame"
-                src="https://www.youtube.com/embed/BXrCWq7DCfg?autoplay=1"
+                src="https://firebasestorage.googleapis.com/v0/b/movie-app-6a811.appspot.com/o/userImages%2FAflamk.mp4?alt=media&token=39d4dc64-8f34-4bc0-9e2e-65544a182931"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
                 title="OurApp"

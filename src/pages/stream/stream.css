@@ -2,21 +2,10 @@
   background: #000;
   color: white;
 }
-.content-details .video-container {
-  margin-top: 4rem;
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  margin-bottom: 2rem;
-}
 .content-details .video-container .responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   border: none;
+  transform: translateY(-10%);
 }
 .content-details .movie-description .release-date {
   font-size: 1.5rem;
@@ -24,30 +13,14 @@
 }
 .content-details .movie-description {
   margin-top: 1.5rem;
+  padding: 1.5rem;
   text-align: left;
   height: auto;
   border-bottom: 1px solid #333;
 }
-.content-details .share-links {
+.stream .mlti-container {
   margin-top: 1rem;
-  text-align: left;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #333;
-}
-.content-details .share-links h2 {
-  margin-bottom: 1rem;
-}
-.content-details .share-links a {
-  color: #e50914;
-  margin: 0 10px;
-  text-decoration: none;
-}
-.content-details .share-links .share-links-a .icons {
-  max-width: 50px;
-  max-height: 50px;
-}
-.content-details .share-links a:hover {
-  text-decoration: underline;
+  transform: translate(0);
 }
 @media (max-width: 768px) {
   .content-header .title {
@@ -58,5 +31,9 @@
   }
   .content-details .video-container .responsive-iframe {
     height: 200px;
+  }
+  .comment-form textarea,
+  .comment-form input {
+    width: 80%;
   }
 }

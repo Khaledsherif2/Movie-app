@@ -2,13 +2,14 @@ import Header from "../../components/Header/Header";
 import "./Login.css";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { jwtDecode } from "jwt-decode";
 import { LoginContext } from "../../context/Login";
 import { EmailContext } from "../../context/Email";
+import { SocketContext } from "../../context/Socket";
+import { registerUser, loginUser } from "../../api/auth";
 
 function Login() {
+  const socket = useContext(SocketContext);
   const { setCookie } = useContext(LoginContext);
   const { email } = useContext(EmailContext);
   const navigate = useNavigate();
@@ -57,41 +58,22 @@ function Login() {
       return;
     }
     setError("");
-    try {
-      const res = await axios.post("http://localhost:8888/api/users/register", {
-        firstName: inputFields.firstName,
-        lastName: inputFields.lastName,
-        email: inputFields.email,
-        phone: inputFields.phone,
-        password: inputFields.password,
-      });
-      if (res.status === 200) {
-        toast.success("Registration Successful");
-        setIsRegister(false);
-      } else {
-        toast.error("Registration failed");
-      }
-    } catch (err) {
-      toast.error(err.response.data.message);
+    const success = await registerUser(inputFields);
+    if (success) {
+      setIsRegister(false);
     }
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:8888/api/users/login", {
-        email: inputFields.email,
-        password: inputFields.password,
-      });
-      const token = res.data.token;
-      const cookieOptions = rememberMe
-        ? { path: "/", maxAge: 60 * 60 * 24 * 2 }
-        : { path: "/" };
-      setCookie("token", token, cookieOptions);
-      navigate("/home");
-    } catch (err) {
-      toast.error(err.response.data.message);
-    }
+    const { token } = await loginUser(inputFields);
+    let decode = jwtDecode(token);
+    socket.emit("registerSocket", decode._id);
+    const cookieOptions = rememberMe
+      ? { path: "/", maxAge: 60 * 60 * 24 * 2 }
+      : { path: "/" };
+    setCookie("token", token, cookieOptions);
+    navigate("/home");
   };
 
   return (
