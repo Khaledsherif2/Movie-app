@@ -34,7 +34,7 @@
   opacity: 0;
 }
 .card:hover::before {
-  transform: translate3d(0px, 15%, 0px);
+  transform: translate3d(0px, 0px, 0px);
   opacity: 0.9;
 }
 .card .card-image {

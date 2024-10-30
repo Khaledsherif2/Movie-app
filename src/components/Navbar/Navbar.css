@@ -150,8 +150,9 @@
 }
 .menu {
   display: none;
-  background-color: #fff;
-  width: 300px;
+  background-color: #000;
+  color: #eee;
+  width: 240px;
   padding: 20px;
   height: 100vh;
   position: fixed;
@@ -188,6 +189,9 @@
 .menu .content ul a {
   font-weight: bold;
   color: #aaa;
+}
+.menu .content ul a:hover {
+  color: #d62c1a;
 }
 .navbar .menu .btn {
   margin-top: 10px;
