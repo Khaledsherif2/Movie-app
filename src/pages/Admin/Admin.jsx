@@ -8,7 +8,6 @@ import { LoginContext } from "../../context/Login";
 import {
   getPendingMovies,
   moderateMovies,
-  getAllMovies,
   updateMovie,
   deleteMovie,
   searchMovies,
@@ -22,6 +21,7 @@ function Admin() {
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState();
   const [movies, setMovies] = useState([]);
+  const [srchMovies, setSrchMovies] = useState([]);
   const [status, setStatus] = useState(false);
   const [update, setUpdate] = useState(false);
   const [editingMovie, setEditingMovie] = useState(null);
@@ -45,20 +45,10 @@ function Admin() {
   useEffect(() => {
     setIsLoading(true);
     searchMovies(token, search).then((data) => {
-      setMovies(data.movies);
+      setSrchMovies(data.movies);
       setIsLoading(false);
     });
   }, [token, search]);
-
-  useEffect(() => {
-    if (update || !search) {
-      setIsLoading(true);
-      getAllMovies(token).then((data) => {
-        setMovies(data);
-        setIsLoading(false);
-      });
-    }
-  }, [update, token, editingMovie, search]);
 
   const HandleMovie = (id, status) => {
     moderateMovies(token, id, status).then((data) => {
@@ -180,8 +170,8 @@ function Admin() {
               </div>
               {isLoading ? (
                 <Loader />
-              ) : movies && movies.length > 0 ? (
-                movies.map((movie) => (
+              ) : srchMovies && srchMovies.length > 0 ? (
+                srchMovies.map((movie) => (
                   <div className="movie" key={movie._id}>
                     <Card movie={movie} />
                     <div className="btn">
